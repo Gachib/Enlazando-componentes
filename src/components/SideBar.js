@@ -1,5 +1,11 @@
 import React from 'react';
 import image from '../assets/images/logo-DH.png';
+import GenresInDb from './GenresInDb';
+import LastMovieInDb from './LastMovieInDb';
+import ContentRowMovies from './ContentRowMovies';
+import ContentWrapper from './ContentWrapper'; 
+import {Link, Route, Routes} from 'react-router-dom';
+import Error404 from './Error404';
 
 function SideBar(){
     return(
@@ -51,6 +57,43 @@ function SideBar(){
                         <i className="fas fa-fw fa-table"></i>
                         <span>Tables</span></a>
                 </li>
+
+                <li className="nav-item">
+                    <Link to="GenresInDb" className="nav-link" >
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>GenresInDb</span>
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to="LastMovieInDb" className="nav-link" >
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>LastMovieInDb</span>
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to="ContenRowMovies" className="nav-link" >
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>ContentRowMovies</span>
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to="ContentWrapper" className="nav-link" >
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>ContentWrapper</span>
+                    </Link>
+                </li>
+                <Routes>
+                    <Route path="/GenresInDb"  element={<GenresInDb/>} />
+                    <Route path="/LastMovieInDb" element={<LastMovieInDb/>} />
+                    <Route path="/ContentRowMovies" element={<ContentRowMovies/>} />
+                    <Route path="/ContentWrapper" element={<ContentWrapper/>} />
+                    <Route path="*" element={<Error404/>} />
+
+                </Routes>
+
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
